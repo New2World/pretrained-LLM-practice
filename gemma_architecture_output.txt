@@ -1,0 +1,216 @@
+model.embed_tokens
+model.layers.0.self_attn.q_proj
+model.layers.0.self_attn.k_proj
+model.layers.0.self_attn.v_proj
+model.layers.0.self_attn.o_proj
+model.layers.0.mlp.gate_proj
+model.layers.0.mlp.up_proj
+model.layers.0.mlp.down_proj
+model.layers.1.self_attn.q_proj
+model.layers.1.self_attn.k_proj
+model.layers.1.self_attn.v_proj
+model.layers.1.self_attn.o_proj
+model.layers.1.mlp.gate_proj
+model.layers.1.mlp.up_proj
+model.layers.1.mlp.down_proj
+model.layers.2.self_attn.q_proj
+model.layers.2.self_attn.k_proj
+model.layers.2.self_attn.v_proj
+model.layers.2.self_attn.o_proj
+model.layers.2.mlp.gate_proj
+model.layers.2.mlp.up_proj
+model.layers.2.mlp.down_proj
+model.layers.3.self_attn.q_proj
+model.layers.3.self_attn.k_proj
+model.layers.3.self_attn.v_proj
+model.layers.3.self_attn.o_proj
+model.layers.3.mlp.gate_proj
+model.layers.3.mlp.up_proj
+model.layers.3.mlp.down_proj
+model.layers.4.self_attn.q_proj
+model.layers.4.self_attn.k_proj
+model.layers.4.self_attn.v_proj
+model.layers.4.self_attn.o_proj
+model.layers.4.mlp.gate_proj
+model.layers.4.mlp.up_proj
+model.layers.4.mlp.down_proj
+model.layers.5.self_attn.q_proj
+model.layers.5.self_attn.k_proj
+model.layers.5.self_attn.v_proj
+model.layers.5.self_attn.o_proj
+model.layers.5.mlp.gate_proj
+model.layers.5.mlp.up_proj
+model.layers.5.mlp.down_proj
+model.layers.6.self_attn.q_proj
+model.layers.6.self_attn.k_proj
+model.layers.6.self_attn.v_proj
+model.layers.6.self_attn.o_proj
+model.layers.6.mlp.gate_proj
+model.layers.6.mlp.up_proj
+model.layers.6.mlp.down_proj
+model.layers.7.self_attn.q_proj
+model.layers.7.self_attn.k_proj
+model.layers.7.self_attn.v_proj
+model.layers.7.self_attn.o_proj
+model.layers.7.mlp.gate_proj
+model.layers.7.mlp.up_proj
+model.layers.7.mlp.down_proj
+model.layers.8.self_attn.q_proj
+model.layers.8.self_attn.k_proj
+model.layers.8.self_attn.v_proj
+model.layers.8.self_attn.o_proj
+model.layers.8.mlp.gate_proj
+model.layers.8.mlp.up_proj
+model.layers.8.mlp.down_proj
+model.layers.9.self_attn.q_proj
+model.layers.9.self_attn.k_proj
+model.layers.9.self_attn.v_proj
+model.layers.9.self_attn.o_proj
+model.layers.9.mlp.gate_proj
+model.layers.9.mlp.up_proj
+model.layers.9.mlp.down_proj
+model.layers.10.self_attn.q_proj
+model.layers.10.self_attn.k_proj
+model.layers.10.self_attn.v_proj
+model.layers.10.self_attn.o_proj
+model.layers.10.mlp.gate_proj
+model.layers.10.mlp.up_proj
+model.layers.10.mlp.down_proj
+model.layers.11.self_attn.q_proj
+model.layers.11.self_attn.k_proj
+model.layers.11.self_attn.v_proj
+model.layers.11.self_attn.o_proj
+model.layers.11.mlp.gate_proj
+model.layers.11.mlp.up_proj
+model.layers.11.mlp.down_proj
+model.layers.12.self_attn.q_proj
+model.layers.12.self_attn.k_proj
+model.layers.12.self_attn.v_proj
+model.layers.12.self_attn.o_proj
+model.layers.12.mlp.gate_proj
+model.layers.12.mlp.up_proj
+model.layers.12.mlp.down_proj
+model.layers.13.self_attn.q_proj
+model.layers.13.self_attn.k_proj
+model.layers.13.self_attn.v_proj
+model.layers.13.self_attn.o_proj
+model.layers.13.mlp.gate_proj
+model.layers.13.mlp.up_proj
+model.layers.13.mlp.down_proj
+model.layers.14.self_attn.q_proj
+model.layers.14.self_attn.k_proj
+model.layers.14.self_attn.v_proj
+model.layers.14.self_attn.o_proj
+model.layers.14.mlp.gate_proj
+model.layers.14.mlp.up_proj
+model.layers.14.mlp.down_proj
+model.layers.15.self_attn.q_proj
+model.layers.15.self_attn.k_proj
+model.layers.15.self_attn.v_proj
+model.layers.15.self_attn.o_proj
+model.layers.15.mlp.gate_proj
+model.layers.15.mlp.up_proj
+model.layers.15.mlp.down_proj
+model.layers.16.self_attn.q_proj
+model.layers.16.self_attn.k_proj
+model.layers.16.self_attn.v_proj
+model.layers.16.self_attn.o_proj
+model.layers.16.mlp.gate_proj
+model.layers.16.mlp.up_proj
+model.layers.16.mlp.down_proj
+model.layers.17.self_attn.q_proj
+model.layers.17.self_attn.k_proj
+model.layers.17.self_attn.v_proj
+model.layers.17.self_attn.o_proj
+model.layers.17.mlp.gate_proj
+model.layers.17.mlp.up_proj
+model.layers.17.mlp.down_proj
+model.layers.18.self_attn.q_proj
+model.layers.18.self_attn.k_proj
+model.layers.18.self_attn.v_proj
+model.layers.18.self_attn.o_proj
+model.layers.18.mlp.gate_proj
+model.layers.18.mlp.up_proj
+model.layers.18.mlp.down_proj
+model.layers.19.self_attn.q_proj
+model.layers.19.self_attn.k_proj
+model.layers.19.self_attn.v_proj
+model.layers.19.self_attn.o_proj
+model.layers.19.mlp.gate_proj
+model.layers.19.mlp.up_proj
+model.layers.19.mlp.down_proj
+model.layers.20.self_attn.q_proj
+model.layers.20.self_attn.k_proj
+model.layers.20.self_attn.v_proj
+model.layers.20.self_attn.o_proj
+model.layers.20.mlp.gate_proj
+model.layers.20.mlp.up_proj
+model.layers.20.mlp.down_proj
+model.layers.21.self_attn.q_proj
+model.layers.21.self_attn.k_proj
+model.layers.21.self_attn.v_proj
+model.layers.21.self_attn.o_proj
+model.layers.21.mlp.gate_proj
+model.layers.21.mlp.up_proj
+model.layers.21.mlp.down_proj
+model.layers.22.self_attn.q_proj
+model.layers.22.self_attn.k_proj
+model.layers.22.self_attn.v_proj
+model.layers.22.self_attn.o_proj
+model.layers.22.mlp.gate_proj
+model.layers.22.mlp.up_proj
+model.layers.22.mlp.down_proj
+model.layers.23.self_attn.q_proj
+model.layers.23.self_attn.k_proj
+model.layers.23.self_attn.v_proj
+model.layers.23.self_attn.o_proj
+model.layers.23.mlp.gate_proj
+model.layers.23.mlp.up_proj
+model.layers.23.mlp.down_proj
+model.layers.24.self_attn.q_proj
+model.layers.24.self_attn.k_proj
+model.layers.24.self_attn.v_proj
+model.layers.24.self_attn.o_proj
+model.layers.24.mlp.gate_proj
+model.layers.24.mlp.up_proj
+model.layers.24.mlp.down_proj
+model.layers.25.self_attn.q_proj
+model.layers.25.self_attn.k_proj
+model.layers.25.self_attn.v_proj
+model.layers.25.self_attn.o_proj
+model.layers.25.mlp.gate_proj
+model.layers.25.mlp.up_proj
+model.layers.25.mlp.down_proj
+lm_head
+
+Gemma3ForCausalLM(
+  (model): Gemma3TextModel(
+    (embed_tokens): Gemma3TextScaledWordEmbedding(262144, 1152, padding_idx=0)
+    (layers): ModuleList(
+      (0-25): 26 x Gemma3DecoderLayer(
+        (self_attn): Gemma3Attention(
+          (q_proj): Linear(in_features=1152, out_features=1024, bias=False)
+          (k_proj): Linear(in_features=1152, out_features=256, bias=False)
+          (v_proj): Linear(in_features=1152, out_features=256, bias=False)
+          (o_proj): Linear(in_features=1024, out_features=1152, bias=False)
+          (q_norm): Gemma3RMSNorm((256,), eps=1e-06)
+          (k_norm): Gemma3RMSNorm((256,), eps=1e-06)
+        )
+        (mlp): Gemma3MLP(
+          (gate_proj): Linear(in_features=1152, out_features=6912, bias=False)
+          (up_proj): Linear(in_features=1152, out_features=6912, bias=False)
+          (down_proj): Linear(in_features=6912, out_features=1152, bias=False)
+          (act_fn): PytorchGELUTanh()
+        )
+        (input_layernorm): Gemma3RMSNorm((1152,), eps=1e-06)
+        (post_attention_layernorm): Gemma3RMSNorm((1152,), eps=1e-06)
+        (pre_feedforward_layernorm): Gemma3RMSNorm((1152,), eps=1e-06)
+        (post_feedforward_layernorm): Gemma3RMSNorm((1152,), eps=1e-06)
+      )
+    )
+    (norm): Gemma3RMSNorm((1152,), eps=1e-06)
+    (rotary_emb): Gemma3RotaryEmbedding()
+    (rotary_emb_local): Gemma3RotaryEmbedding()
+  )
+  (lm_head): Linear(in_features=1152, out_features=262144, bias=False)
+)
