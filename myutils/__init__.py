@@ -30,3 +30,8 @@ def lr_linear(x, n_steps, lrf):
 
 def lr_onecycle(x, n_steps, lrf):
     return ((1 - math.cos(x * math.pi / n_steps)) / 2) * (lrf - 1) + 1
+
+def load_chat_template(path):
+    with open(path, "r") as f:
+        chat_template = f.read()
+    return chat_template

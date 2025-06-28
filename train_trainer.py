@@ -8,7 +8,7 @@ from transformers import (
 from peft import LoraConfig, get_peft_model, TaskType
 from datasets import Dataset
 import myutils
-from myutils.data import load_OpenHermes_dataset_batchone, inst_dataset_collate_fn
+from myutils.data import load_OpenHermes_dataset_chat_template, inst_dataset_collate_fn
 from functools import partial
 import os
 import argparse
@@ -74,7 +74,7 @@ def main(args):
 
     tokenizer = AutoTokenizer.from_pretrained("google/gemma-3-1b-pt", cache_dir=args.cache_dir)
 
-    dataset = load_OpenHermes_dataset_batchone(tokenizer, args.cache_dir)
+    dataset = load_OpenHermes_dataset_chat_template(tokenizer, args.cache_dir)
     if not isinstance(dataset, Dataset):
         dataset = Dataset.from_list(dataset)
 

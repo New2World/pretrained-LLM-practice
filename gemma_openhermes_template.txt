@@ -1,0 +1,48 @@
+{{ bos_token }}
+{%- if messages[0]['from'] == 'system' -%}
+    {%- if messages[0]['value'] is string -%}
+        {%- set first_user_prefix = messages[0]['value'] + '\n\n' -%}
+    {%- else -%}
+        {%- set first_user_prefix = messages[0]['value'][0]['text'] + '\n\n' -%}
+    {%- endif -%}
+    {%- set loop_messages = messages[1:] -%}
+{%- else -%}
+    {%- set first_user_prefix = "" -%}
+    {%- set loop_messages = messages -%}
+{%- endif -%}
+{%- for message in loop_messages -%}
+    {%- if (message['from'] == 'human') != (loop.index0 % 2 == 0) -%}
+        {{ raise_exception("Conversation roles must alternate user/assistant/user/assistant/...") }}
+    {%- endif -%}
+    {%- if (message['from'] == 'gpt') -%}
+        {%- set role = "model" -%}
+    {%- else -%}
+        {%- set role = message['from'] -%}
+    {%- endif -%}
+    {%- set response = namespace(data=['<start_of_turn>', role, '\n', (first_user_prefix if loop.first else "")]) -%}
+    {%- if message['value'] is string -%}
+        {%- set response.data = response.data + [(message['value'] | trim)] -%}
+    {%- elif message['value'] is iterable -%}
+        {%- for item in message['value'] -%}
+            {%- if item['type'] == 'image' -%}
+                {%- set response.data = response.data + ['<start_of_image>'] -%}
+            {%- elif item['type'] == 'text' -%}
+                {%- set response.data = response.data + [(item['text'] | trim)] -%}
+            {%- endif -%}
+        {%- endfor -%}
+    {%- else -%}
+        {{ raise_exception("Invalid content type") }}
+    {%- endif -%}
+    {%- set response.data = response.data + ['<end_of_turn>\n'] -%}
+    {%- set model_response = response.data|join("") -%}
+    {%- if (role != 'human') -%}
+        {%- generation -%}
+        {{ model_response }}
+        {%- endgeneration -%}
+    {%- else -%}
+        {{ model_response }}
+    {%- endif -%}
+{%- endfor -%}
+{%- if add_generation_prompt -%}
+    {{'<start_of_turn>model\n'}}
+{%- endif -%}

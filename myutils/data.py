@@ -1,5 +1,6 @@
 import torch
 from datasets import load_dataset
+from . import load_chat_template
 
 from functools import partial
 
@@ -82,5 +83,26 @@ def OpenHermes_preprocess_fn_batchone(examples, tokenizer):
 def load_OpenHermes_dataset_batchone(tokenizer, cache_dir):
     hermes_dataset = load_dataset("teknium/OpenHermes-2.5", cache_dir=cache_dir)
     tokenized_dataset = hermes_dataset.map(partial(OpenHermes_preprocess_fn_batchone, tokenizer=tokenizer), batched=False)
+    tokenized_dataset.set_format("torch", columns=["input_ids", "attention_mask", "labels"])
+    return tokenized_dataset["train"]
+
+
+def OpenHermes_preprocess_fn_chat_template(examples, tokenizer, chat_template):
+    chats = tokenizer.apply_chat_template(examples["conversations"],
+                                          chat_template=chat_template,
+                                          return_tensors="pt",
+                                          return_dict=True,
+                                          return_assistant_tokens_mask=True,
+                                          add_generation_prompt=False)
+    labels = chats["input_ids"].clone()
+    labels[(1-chats["assistant_masks"]).to(dtype=torch.bool)] = -100
+    return {"input_ids": chats["input_ids"].squeeze(),
+            "attention_mask": chats["attention_mask"].squeeze(),
+            "labels": labels.squeeze()}
+
+def load_OpenHermes_dataset_chat_template(tokenizer, cache_dir):
+    hermes_dataset = load_dataset("teknium/OpenHermes-2.5", cache_dir=cache_dir)
+    chat_template = load_chat_template("gemma_openhermes_template.txt")
+    tokenized_dataset = hermes_dataset.map(partial(OpenHermes_preprocess_fn_chat_template, tokenizer=tokenizer, chat_template=chat_template), batched=False)
     tokenized_dataset.set_format("torch", columns=["input_ids", "attention_mask", "labels"])
     return tokenized_dataset["train"]
