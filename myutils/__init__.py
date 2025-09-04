@@ -5,6 +5,8 @@ import math
 from functools import wraps, partial
 import datetime
 
+from huggingface_hub import login
+
 
 def timestamp(func):
     @wraps(func)
@@ -35,3 +37,8 @@ def load_chat_template(path):
     with open(path, "r") as f:
         chat_template = f.read()
     return chat_template
+
+def huggingface_login():
+    with open("log/huggingface_token", "r") as f:
+        token = f.read()
+    login(token=token)

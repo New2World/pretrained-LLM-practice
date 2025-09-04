@@ -100,9 +100,14 @@ def OpenHermes_preprocess_fn_chat_template(examples, tokenizer, chat_template):
             "attention_mask": chats["attention_mask"].squeeze(),
             "labels": labels.squeeze()}
 
-def load_OpenHermes_dataset_chat_template(tokenizer, cache_dir):
+def load_OpenHermes_dataset_chat_template(tokenizer, cache_dir, split="all"):
+    assert split in ["train", "test", "all"], "split should be ['train', 'test', 'all']."
     hermes_dataset = load_dataset("teknium/OpenHermes-2.5", cache_dir=cache_dir)
     chat_template = load_chat_template("gemma_openhermes_template.txt")
     tokenized_dataset = hermes_dataset.map(partial(OpenHermes_preprocess_fn_chat_template, tokenizer=tokenizer, chat_template=chat_template), batched=False)
     tokenized_dataset.set_format("torch", columns=["input_ids", "attention_mask", "labels"])
-    return tokenized_dataset["train"]
+    if split == "all":
+        return tokenized_dataset["train"]
+    else:
+        split_dataset = tokenized_dataset["train"].train_test_split(train_size=0.8, shuffle=False)
+        return split_dataset[split]

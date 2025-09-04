@@ -37,9 +37,7 @@ def main(args):
         gradient_accumulation_steps=args.grad_accum,
     )
 
-    from huggingface_hub import login
-    login(token="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")
-
+    myutils.huggingface_login()
     model = Gemma3ForCausalLM.from_pretrained(
         args.pretrained,
         cache_dir=args.cache_dir,
@@ -74,7 +72,7 @@ def main(args):
 
     tokenizer = AutoTokenizer.from_pretrained("google/gemma-3-1b-pt", cache_dir=args.cache_dir)
 
-    dataset = load_OpenHermes_dataset_chat_template(tokenizer, args.cache_dir)
+    dataset = load_OpenHermes_dataset_chat_template(tokenizer, args.cache_dir, split="train")
     if not isinstance(dataset, Dataset):
         dataset = Dataset.from_list(dataset)
 
@@ -152,7 +150,7 @@ if __name__ == "__main__":
     parser.add_argument("--lora_r", type=int, default=0)
     parser.add_argument("--lora_alpha", type=int, default=16)
     parser.add_argument("--warmup_steps", type=int, default=200)
-    parser.add_argument("--weight_decay", type=float, default=0.0)
+    parser.add_argument("--weight_decay", type=float, default=1e-2)
     parser.add_argument("--grad_clip", type=float, default=0.0)
     parser.add_argument("--pretrained", type=str, default=None)
     parser.add_argument("--cache_dir", type=str, default=None)

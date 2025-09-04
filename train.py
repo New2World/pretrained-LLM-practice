@@ -119,8 +119,7 @@ def main(args):
     assert args.grad_accum >= 1
     assert args.grad_accum % ddp_world_size == 0
     
-    from huggingface_hub import login
-    login(token="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")
+    myutils.huggingface_login()
     model = Gemma3ForCausalLM.from_pretrained(args.pretrained, cache_dir=args.cache_dir, device_map="auto")
     if args.lora_r > 0:
         print("[ Using LoRA ]")
