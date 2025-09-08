@@ -4,7 +4,7 @@ import time
 import sys
 from termcolor import colored
 
-from transformers import Gemma3ForCausalLM, AutoTokenizer
+from transformers import Gemma3ForCausalLM, AutoTokenizer, DynamicCache
 from peft import PeftModel, PeftConfig
 
 from myutils import load_chat_template
@@ -32,6 +32,7 @@ chat_template = load_chat_template("gemma_openhermes_template.txt")
 model.eval()
 with torch.inference_mode():
     system_head = [{"from": "system", "value": "I am Gemma, a helpful personal assistant."}]
+    chat_cache = DynamicCache(config=model.config)
     chats = []
     while True:
         torch.cuda.empty_cache()
@@ -55,7 +56,9 @@ with torch.inference_mode():
         inputs = inputs.to(model.device)
         output_token = model.generate(inputs["input_ids"], 
                                       attention_mask=inputs["attention_mask"], 
-                                      max_new_tokens=32_000)
+                                      max_new_tokens=32_000, 
+                                      past_key_values=chat_cache,
+                                      use_cache=True)
         output = tokenizer.decode(output_token[0][prompt_len:], skip_special_tokens=True)
         chats.append({"from": "gpt", "value": output})
 
