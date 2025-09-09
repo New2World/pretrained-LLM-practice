@@ -31,7 +31,7 @@ chat_template = load_chat_template("gemma_openhermes_template.txt")
 
 model.eval()
 with torch.inference_mode():
-    system_head = [{"from": "system", "value": "I am Gemma, a helpful personal assistant."}]
+    system_head = [{"from": "system", "value": "Your name is Gemma, a helpful personal assistant."}]
     chat_cache = DynamicCache(config=model.config)
     chats = []
     while True:
